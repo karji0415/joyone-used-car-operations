@@ -1,0 +1,9 @@
+Option Explicit
+
+Private Sub Application_Startup()
+    JOYoneMailArchive.InitializeJOYoneWatcher
+End Sub
+
+Private Sub Application_Quit()
+    JOYoneMailArchive.ReleaseJOYoneWatcher
+End Sub
