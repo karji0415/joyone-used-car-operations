@@ -2,7 +2,7 @@
 
 > 二手车运营人员通过 AI 协作搭建的本地化工作台，用于管理车辆过户、检查 Sales 报表，以及按 VIN 查询 Outlook 邮寄记录。
 
-**在线 Demo：** `[上传 GitHub 后填写 Pages 链接]`　　
+**在线 Demo：** [打开 JOYone Demo](https://karji0415.github.io/joyone-used-car-operations/)　　
 **项目案例：** [查看 Case Study](docs/case-study.md)　　
 **需求文档：** [查看精简 PRD](docs/prd-lite.md)
 
