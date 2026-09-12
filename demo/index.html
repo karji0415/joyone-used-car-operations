@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f4faff">
+  <meta name="description" content="JOYone 二手车业务工作台">
+  <title>JOYone · 二手车业务工作台</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="agent-platform.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">跳至主要内容</a>
+
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="主导航">
+      <button class="brand" type="button" data-route="today" aria-label="JOYone 首页">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span class="brand-copy"><strong>JOY<span>one</span></strong></span>
+      </button>
+      <nav class="side-nav">
+        <p class="nav-caption">日常工作</p>
+        <button class="nav-item active" data-route="today"><span>今日</span><b id="todayNavCount">5</b></button>
+        <button class="nav-item" data-route="sheets"><span class="nav-icon" data-icon="sheet"></span><span>表格核查</span><b>5</b></button>
+        <button class="nav-item" data-route="transfer"><span class="nav-icon" data-icon="car"></span><span>车辆任务</span></button>
+        <button class="nav-item" data-route="mail"><span class="nav-icon" data-icon="mail"></span><span>邮件草稿</span></button>
+        <p class="nav-caption nav-caption-secondary">查询记录</p>
+        <button class="nav-item" data-route="search"><span class="nav-icon" data-icon="search"></span><span>搜索</span></button>
+        <button class="nav-item" data-route="log"><span class="nav-icon" data-icon="clock"></span><span>核查与记录</span></button>
+        <p class="nav-caption nav-caption-secondary">能力接入</p>
+        <button class="nav-item" type="button" data-agent-open="connect"><span>接入中心</span><b id="connectionCount">0 / 4</b></button>
+      </nav>
+
+    </aside>
+
+    <div class="workspace">
+      <header class="topbar">
+        <button class="button ghost small" data-action="toggle-sidebar" aria-label="收起或展开导航">☰</button><div class="breadcrumb">工作空间 <span>/</span> <strong id="currentPageLabel">今日</strong></div>
+        <div class="topbar-actions"><button class="ask-trigger" type="button" data-action="open-ask"><span data-icon="sparkles"></span> 询问 JOYone <kbd>⌘ K</kbd></button></div>
+      </header>
+      <main id="main" tabindex="-1"></main>
+    </div>
+  </div>
+
+  <dialog id="askDialog" class="dialog ask-dialog">
+    <form method="dialog" class="dialog-shell" id="askDialogForm">
+      <header>
+        <div class="ask-identity"><span class="assistant-badge">J</span><h2>JOYone 助手</h2></div>
+        <button class="icon-button" value="cancel" aria-label="关闭">×</button>
+      </header>
+      <p id="askContext" class="assistant-context"></p><div class="prompt-list" id="promptList">
+        <button type="button" data-prompt="查看待办">查看待办</button>
+        <button type="button" data-prompt="查看库存候选">查看库存候选</button>
+        <button type="button" data-prompt="查看表格差异">查看表格差异</button>
+        <button type="button" data-prompt="打开邮件草稿">打开邮件草稿</button>
+      </div>
+      <div class="ask-answer" id="askAnswer" hidden></div>
+      <div class="ask-composer"><input id="askInput" autocomplete="off" placeholder="输入 VIN、经销商或表格关键词…"><button type="button" class="button primary" data-action="submit-ask" aria-label="发送"><span data-icon="send"></span></button></div>
+    </form>
+  </dialog>
+
+  <dialog id="decisionDialog" class="dialog">
+    <form method="dialog" class="dialog-shell" id="decisionForm">
+      <header><h2 id="decisionTitle">人工确认</h2><button class="icon-button" value="cancel" aria-label="关闭">×</button></header>
+      <div id="decisionBody"></div>
+      <footer><button class="button secondary" value="cancel">取消</button><button class="button primary" id="decisionConfirm" value="default">确认</button></footer>
+    </form>
+  </dialog>
+
+  <div class="toast-region" id="toastRegion" aria-live="polite" aria-atomic="true"></div>
+  <dialog id="detailDialog" class="dialog detail-dialog"><div class="dialog-shell"><header><h2 id="detailTitle"></h2><button class="icon-button" data-action="close-detail" aria-label="关闭">×</button></header><div id="detailBody"></div></div></dialog>
+  <input type="file" id="followupFileInput" accept=".pdf,.jpg,.jpeg,.png,.xlsx,.csv,.txt,.eml" multiple hidden>
+  <input type="file" id="workbookInput" accept=".xlsx,.csv" hidden>
+  <input type="file" id="materialsInput" accept=".zip,.pdf,.png,.jpg,.jpeg,.eml,.txt,.xlsx,.csv" multiple hidden>
+  <script src="vendor/jszip.min.js"></script>
+  <script src="workbook.js"></script>
+  <script src="followups.js"></script>
+  <script src="review.js"></script>
+  <script src="operations.js"></script>
+  <script src="app.js"></script>
+  <script src="api-demo.js"></script>
+  <script src="agent-platform.js"></script>
+</body>
+</html>
